@@ -66,7 +66,6 @@ TEMPLATES = [
         },
     },
 ]
-TEMPLATES[0]["OPTIONS"]["debug"] = True  # type: ignore[index]
 
 WSGI_APPLICATION = 'taskmanager.wsgi.application'
 
