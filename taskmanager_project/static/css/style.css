@@ -1,0 +1,262 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 20px;
+}
+
+h1, h2 {
+    color: #222;
+}
+
+.page-title {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+header nav {
+    display: flex;
+    gap: 25px;   /* відстань між посиланнями */
+}
+
+header nav a {
+    text-decoration: none;
+    color: #007bff;   /* залишаємо твій колір */
+    font-weight: 500; /* додаємо жирність */
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+.task-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 1024px
+}
+
+.task-item {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    gap: 15px;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    align-items: center;
+}
+
+.task-title a {
+    font-weight: 600;
+    text-decoration: none;
+    color: -webkit-link;
+}
+
+.task-title a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
+/* Стан коли немає тасок */
+.no-tasks {
+    text-align: center;
+    font-size: 1.2em;
+    color: #555;
+    margin: 40px 0;
+    font-weight: 500;
+}
+
+.task-status.new { color: blue; font-weight: bold; }
+.task-status.in_progress { color: orange; font-weight: bold; }
+.task-status.done { color: green; font-weight: bold; }
+
+.task-priority.low { color: gray; }
+.task-priority.medium { color: teal; }
+.task-priority.high { color: red; font-weight: bold; }
+.task-priority.immediate { color: darkred; font-weight: bold; }
+
+.task-inactive { color: #888; font-style: italic; }
+.task-due { font-size: 0.9em; color: #555; }
+
+
+/* === DETAIL PAGE === */
+.task-detail {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 25px 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.task-detail-title {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.task-detail-meta {
+    margin-bottom: 25px;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.label {
+    font-weight: 600;
+    color: #555;
+}
+
+.task-description {
+    margin-top: 20px;
+}
+
+.task-description h4 {
+    margin-bottom: 8px;
+}
+
+.task-actions {
+    margin-top: 25px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.btn {
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+}
+
+.btn-secondary:hover {
+    background-color: #545b62;
+}
+
+
+/* === FORM PAGE === */
+.task-form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+
+.form-title {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.task-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #444;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 90px;
+}
+
+.form-error {
+    color: red;
+    font-size: 0.85em;
+}
+
+.form-actions {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+
+/* === FORM HELP TEXT === */
+.form-help {
+    font-size: 0.8em;
+    color: #777;
+}
+
+.form-group input[type="checkbox"] {
+    width: auto;
+    margin-top: 5px;
+}
+
+
+/* PAGINATION */
+.pagination {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.page-btn {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 8px;
+    background: #f3f4f6;
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    min-width: 36px;
+    text-align: center;
+}
+
+.page-btn:hover {
+    background: #2563eb;
+    color: white;
+}
+
+.page-btn.active {
+    background: #2563eb;
+    color: white;
+    pointer-events: none;
+}

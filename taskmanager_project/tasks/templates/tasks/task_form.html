@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {% if form.instance.pk %}Task editing{% else %}Create Task{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<div class="task-form-container">
+
+    <h2 class="form-title">
+        {% if form.instance.pk %}
+            ✏️ Task editing
+        {% else %}
+            ➕ Create Task
+        {% endif %}
+    </h2>
+
+    <form method="post" class="task-form">
+        {% csrf_token %}
+
+        {% for field in form %}
+            <div class="form-group">
+                <label for="{{ field.id_for_label }}">
+                    {{ field.label }}
+                </label>
+
+                {{ field }}
+
+                {% if field.help_text %}
+                    <small class="form-help">
+                        {{ field.help_text }}
+                    </small>
+                {% endif %}
+
+                {% if field.errors %}
+                    <div class="form-error">
+                        {{ field.errors }}
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+
+        <div class="form-actions">
+            <button type="submit" class="btn">
+                {% if form.instance.pk %}Update{% else %}Save{% endif %}
+            </button>
+
+            {% if form.instance.pk %}
+                <a href="{% url 'tasks:task_detail' form.instance.pk %}" class="btn btn-secondary">
+                    Back to the task
+                </a>
+            {% else %}
+                <a href="{% url 'tasks:task_list' %}" class="btn btn-secondary">
+                    Cancel
+                </a>
+            {% endif %}
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock %}
+

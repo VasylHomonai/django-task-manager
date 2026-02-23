@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}Task Detail{% endblock %}
+
+{% block content %}
+
+<div class="task-detail">
+
+    <h2 class="task-detail-title">
+        {{ task.title }}
+    </h2>
+
+    <div class="task-detail-meta">
+
+        <div class="detail-row">
+            <span class="label">Status:</span>
+            <span class="task-status {{ task.status }}">
+                {{ task.get_status_display }}
+            </span>
+        </div>
+
+        <div class="detail-row">
+            <span class="label">Priority:</span>
+            <span class="task-priority {{ task.priority }}">
+                {{ task.get_priority_display }}
+            </span>
+        </div>
+
+        <div class="detail-row">
+            <span class="label">Active:</span>
+            <span>
+                {% if task.is_active %}Yes{% else %}No{% endif %}
+            </span>
+        </div>
+
+        <div class="detail-row">
+            <span class="label">Created:</span>
+            <span>{{ task.created_at|date:"Y-m-d H:i" }}</span>
+        </div>
+
+        <div class="detail-row">
+            <span class="label">Due date:</span>
+            <span>{{ task.due_date|default:"—" }}</span>
+        </div>
+
+    </div>
+
+    <div class="task-description">
+        <h4>Description</h4>
+        <p>{{ task.description|default:"No description" }}</p>
+    </div>
+
+    <div class="task-actions">
+        <a class="btn" href="{% url 'tasks:task_edit' task.pk %}">Редагувати</a>
+        <a class="btn btn-secondary" href="{% url 'tasks:task_list' %}">Back</a>
+    </div>
+
+</div>
+
+{% endblock %}
