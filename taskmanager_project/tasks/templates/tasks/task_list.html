@@ -10,7 +10,7 @@
         <li class="task-item">
 
             <div class="task-col task-title">
-                <a href="{% url 'tasks:task_detail' task.pk %}">
+                <a href="{% url 'tasks:task_detail' task.pk %}?tab={{ page_type }}">
                     {{ task.title }}
                 </a>
             </div>

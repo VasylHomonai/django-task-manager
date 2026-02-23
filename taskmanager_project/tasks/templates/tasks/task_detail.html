@@ -52,7 +52,7 @@
 
     <div class="task-actions">
         <a class="btn" href="{% url 'tasks:task_edit' task.pk %}">Edit</a>
-        <a class="btn btn-secondary" href="{% url 'tasks:task_list' %}">Back</a>
+        <a class="btn btn-secondary" href="{% if page_type == 'inactive' %}{% url 'tasks:inactive_tasks' %}{% else %}{% url 'tasks:task_list' %}{% endif %}">Back</a>
     </div>
 
 </div>
