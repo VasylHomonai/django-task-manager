@@ -10,10 +10,24 @@
 
     <header>
         <h1>Task Manager</h1>
-        <nav>
-            <a href="{% url 'tasks:task_list' %}">All Tasks</a> |
-            <a href="{% url 'tasks:task_create' %}">Create Task</a>
+
+        <nav class="tabs">
+            <a href="{% url 'tasks:task_list' %}"
+               class="tab {% if request.resolver_match.url_name == 'task_list' %}active-tab{% endif %}">
+                All Tasks
+            </a>
+
+            <a href="{% url 'tasks:task_create' %}"
+               class="tab {% if request.resolver_match.url_name == 'task_create' %}active-tab{% endif %}">
+                Create Task
+            </a>
+
+            <a href="{% url 'tasks:inactive_tasks' %}"
+               class="tab inactive-tab {% if request.resolver_match.url_name == 'inactive_tasks' %}active-tab{% endif %}">
+                Inactives
+            </a>
         </nav>
+
         <hr>
     </header>
 

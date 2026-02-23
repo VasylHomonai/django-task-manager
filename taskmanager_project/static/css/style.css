@@ -19,14 +19,32 @@ header nav {
     gap: 25px;   /* відстань між посиланнями */
 }
 
-header nav a {
-    text-decoration: none;
-    color: #007bff;   /* залишаємо твій колір */
-    font-weight: 500; /* додаємо жирність */
+.tabs {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
 }
 
-header nav a:hover {
-    text-decoration: underline;
+.tab {
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-weight: 500;
+    color: #007bff;
+    transition: 0.2s;
+}
+
+.tab:hover {
+    background-color: #e9ecef;
+}
+
+.active-tab {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.inactive-tab {
+    color: gray;
 }
 
 .task-list {

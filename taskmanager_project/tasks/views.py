@@ -10,11 +10,15 @@ class TaskListView(ListView):
     model = Task
     template_name = "tasks/task_list.html"
     context_object_name = "tasks"
-    ordering = ["-created_at"]
     paginate_by = 7
 
     def get_queryset(self):
-        return Task.objects.order_by("-created_at")
+        return Task.objects.filter(is_active=True).order_by("-created_at")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["page_type"] = "all"
+        return context
 
 
 class TaskDetailView(DetailView):
@@ -37,3 +41,18 @@ class TaskUpdateView(UpdateView):
 
     def get_success_url(self):
         return reverse('tasks:task_detail', kwargs={'pk': self.object.pk})
+
+
+class InactiveTaskListView(ListView):
+    model = Task
+    template_name = "tasks/task_list.html"
+    context_object_name = "tasks"
+    paginate_by = 7
+
+    def get_queryset(self):
+        return Task.objects.filter(is_active=False).order_by("-created_at")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["page_type"] = "inactive"
+        return context
