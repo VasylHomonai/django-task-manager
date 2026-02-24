@@ -43,9 +43,9 @@ header nav {
     color: white;
 }
 
-.inactive-tab {
+/*.inactive-tab {
     color: gray;
-}
+}*/
 
 .task-list {
     list-style: none;
@@ -89,6 +89,7 @@ header nav {
 .task-status.new { color: blue; font-weight: bold; }
 .task-status.in_progress { color: orange; font-weight: bold; }
 .task-status.done { color: green; font-weight: bold; }
+.task-status.closed { color: black; font-weight: bold; }
 
 .task-priority.low { color: gray; }
 .task-priority.medium { color: teal; }

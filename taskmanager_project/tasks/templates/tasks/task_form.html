@@ -47,7 +47,8 @@
             </button>
 
             {% if form.instance.pk %}
-                <a href="{% url 'tasks:task_detail' form.instance.pk %}" class="btn btn-secondary">
+                <a href="{% url 'tasks:task_detail' form.instance.pk %}?tab={{ page_type }}"
+                    class="btn btn-secondary">
                     Back to the task
                 </a>
             {% else %}
@@ -62,4 +63,3 @@
 </div>
 
 {% endblock %}
-

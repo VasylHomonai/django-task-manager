@@ -8,6 +8,7 @@ class Task(models.Model):
         NEW = "new", "New"
         IN_PROGRESS = "in_progress", "In Progress"
         DONE = "done", "Done"
+        CLOSED = "closed", "Closed"
 
     class Priority(models.TextChoices):
         LOW = "low", "Low"
